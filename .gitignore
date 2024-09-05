@@ -1,0 +1,4 @@
+/.vscode/
+/backend/.idea/
+/backend/.venv/
+/.env
