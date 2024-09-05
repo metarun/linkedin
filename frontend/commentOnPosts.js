@@ -8,6 +8,8 @@ async function readLinkedInPageAndComment() {
 
   for (const [index, post] of posts.entries()) {
     const post_number = index + 1;
+    let LikedPostNumber = 0;
+    let CommentedPostNumber = 0;
 
     console.log(`\n--- Processing Post ${post_number} ---`);
     console.log(`Retrieving details for the post on the LinkedIn page.`);
@@ -26,8 +28,9 @@ async function readLinkedInPageAndComment() {
       clickLinkedInLikeButton(); // Like the post
       console.log(`Liked Post ${post_number} because it has ${reactions} reactions.`);
       postLiked = true; // Set flag to ensure no other post is liked
+      LikedPostNumber = post_number;
     } else if (postLiked) {
-      console.log(`\nPost ${post_number} was not liked because a previous post has already been liked.`);
+      console.log(`\nPost ${post_number} was not liked because a previous post ${LikedPostNumber} has already been liked.`);
     } else {
       console.log(`\nPost ${post_number} was not liked because it has only ${reactions} reactions (less than the required ${min_reactions}).`);
     }
@@ -46,7 +49,7 @@ async function readLinkedInPageAndComment() {
         console.log(`\nPost ${post_number} has already been responded to, skipping comment.`);
       }
     } else if (commentPosted) {
-      console.log(`\nPost ${post_number} was not commented on because a previous post has already been commented on.`);
+      console.log(`\nPost ${post_number} was not commented on because a previous post ${CommentedPostNumber} has already been commented on.`);
     } else {
       console.log(`\nPost ${post_number} was not commented on because its content length is only ${postContent.length} characters (less than the required 400 characters).`);
     }

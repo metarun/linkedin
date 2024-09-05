@@ -15,7 +15,7 @@ async function clickLinkedInHomeIcon() {
   }
 
   console.log('\nWaiting for 5 seconds for the page to load...');
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await new Promise(resolve => setTimeout(resolve, 10000));
 }
 
 
