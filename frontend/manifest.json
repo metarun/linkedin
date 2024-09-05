@@ -7,7 +7,7 @@
   "content_scripts": [
     {
       "matches": ["https://*.linkedin.com/*"],
-      "js": ["likes.js","comment.js","misc.js","extractPostDetails.js","APISavePostDetails.js","APICheckPostResponse.js","APIGetPostResponseFromLLM.js" ,"commentOnPosts.js", "content.js"],
+      "js": ["dragdrop.js","likes.js","comment.js","misc.js","extractPostDetails.js","APISavePostDetails.js","APICheckPostResponse.js","APIGetPostResponseFromLLM.js" ,"commentOnPosts.js", "content.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"
     }
