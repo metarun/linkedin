@@ -1,0 +1,100 @@
+#linkedin-interaction-sidebar {
+  position: fixed;
+  top: 20%;
+  right: 20%;
+  background-color: #fff; /* White for light mode */
+  color: #1d2226; /* Dark grey for light mode */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10000;
+}
+
+@media (prefers-color-scheme: dark) {
+  #linkedin-interaction-sidebar {
+    background-color: #1d2226; /* Dark grey for dark mode */
+    color: #fff; /* White for dark mode */
+  }
+}
+
+#linkedin-interaction-sidebar h2 {
+  margin-bottom: 15px;
+}
+
+#linkedin-interaction-sidebar form div {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Light grey for off state */
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff; /* White for toggle */
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #29a844; /* LinkedIn Green for on state */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+#save {
+  width: 100%;
+  padding: 10px;
+  background-color: #0a66c2; /* LinkedIn Blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#save:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+#comment-interval-container {
+  margin-top: 10px;
+}
+
+#comment-interval {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

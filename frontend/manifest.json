@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn Interaction Manager",
+  "version": "1.0",
+  "description": "Manage your LinkedIn interactions",
+  "permissions": ["activeTab", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://*.linkedin.com/*"],
+      "js": ["likes.js","comment.js","misc.js","extractPostDetails.js","APISavePostDetails.js","APICheckPostResponse.js","APIGetPostResponseFromLLM.js" ,"commentOnPosts.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
