@@ -13,7 +13,7 @@ async function readLinkedInPageAndComment() {
     console.log(`Retrieving details for the post on the LinkedIn page.`);
 
     // Extract post details (assuming this function exists)
-    const postDetails = extractPostDetails(post);
+    const postDetails  = await extractPostDetails(post);
     const { postContent, reactions } = postDetails;
 
     // Save details of every post
