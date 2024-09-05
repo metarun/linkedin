@@ -1,5 +1,3 @@
-// content.js
-
 function loadStyles() {
   const link = document.createElement('link');
   link.rel = 'stylesheet';
@@ -74,7 +72,6 @@ function createSidebar() {
         startCommenting(commentInterval);
         saveButton.disabled = true;
         statusMessage.style.display = 'block';
-        startCountdown(commentInterval * 60);
       } else {
         alert('Please enter a valid interval greater than 0.');
         return;
@@ -91,6 +88,7 @@ function createSidebar() {
     saveButton.disabled = intervalInput.value.trim() === '';
   });
 }
+
 function makeDraggable(element) {
   let isDragging = false;
   let currentX;
@@ -143,14 +141,22 @@ function startCommenting(minutes) {
   if (commentIntervalId) {
     clearInterval(commentIntervalId);
   }
+
   const intervalMillis = minutes * 60 * 1000;
   isCommentingEnabled = true;
+
+  // Run immediately
+  readLinkedInPageAndComment();
+
+  // Schedule subsequent runs
   commentIntervalId = setInterval(() => {
     if (isCommentingEnabled) {
       readLinkedInPageAndComment();
-      startCountdown(minutes * 60);
     }
   }, intervalMillis);
+
+  // Start countdown with the interval
+  startCountdown(minutes * 60);
 }
 
 function stopCommenting() {
@@ -188,5 +194,6 @@ function startCountdown(seconds) {
   updateCountdown();
   countdownIntervalId = setInterval(updateCountdown, 1000);
 }
-// Call createSidebar when the content script loadsmm
+
+// Call createSidebar when the content script loads
 createSidebar();
